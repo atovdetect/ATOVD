@@ -1,6 +1,6 @@
 
 
-import javax.servlet.http.HttpServletRequest;
+//import javax.servlet.http.HttpServletRequest;
 import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.Map;
@@ -14,7 +14,7 @@ public class Starter {
         //Initializing all the connections
     }
 
-    public void startListesning(HttpServletRequest request){
+    public void startListesning(String request){
        //request.
     }
 
@@ -31,19 +31,19 @@ public class Starter {
      * @param request
      * @return
      */
-    private Map<String, String> getRequestHeadersInMap(HttpServletRequest request) {
-
-        Map<String, String> result = new HashMap<>();
-
-        Enumeration headerNames = request.getHeaderNames();
-
-        while (headerNames.hasMoreElements()) {
-            String key = (String) headerNames.nextElement();
-            String value = request.getHeader(key);
-            result.put(key, value);
-        }
-
-        return result;
-    }
+//    private Map<String, String> getRequestHeadersInMap(HttpServletRequest request) {
+//
+//        Map<String, String> result = new HashMap<>();
+//
+//        Enumeration headerNames = request.getHeaderNames();
+//
+//        while (headerNames.hasMoreElements()) {
+//            String key = (String) headerNames.nextElement();
+//            String value = request.getHeader(key);
+//            result.put(key, value);
+//        }
+//
+//        return result;
+//    }
 
 }
