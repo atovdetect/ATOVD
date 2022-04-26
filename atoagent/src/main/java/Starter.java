@@ -26,24 +26,4 @@ public class Starter {
         //stop the listener on server shutdown
     }
 
-    /**
-     *
-     * @param request
-     * @return
-     */
-//    private Map<String, String> getRequestHeadersInMap(HttpServletRequest request) {
-//
-//        Map<String, String> result = new HashMap<>();
-//
-//        Enumeration headerNames = request.getHeaderNames();
-//
-//        while (headerNames.hasMoreElements()) {
-//            String key = (String) headerNames.nextElement();
-//            String value = request.getHeader(key);
-//            result.put(key, value);
-//        }
-//
-//        return result;
-//    }
-
 }
