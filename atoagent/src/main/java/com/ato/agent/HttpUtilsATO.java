@@ -20,6 +20,7 @@ import java.util.stream.Collectors;
  */
 public class HttpUtilsATO {
 
+
     static OkHttpClient okhttp =
             new OkHttpClient.Builder()
                     .connectTimeout(3000, TimeUnit.MILLISECONDS)
@@ -31,9 +32,21 @@ public class HttpUtilsATO {
     /**
      *
      * @param request
+     */
+    public void analyzeRequest(HttpServletRequest request){
+        Map<String, String> result=getRequestHeadersInMap(request);
+        if(result.size()>10){
+            apiCall();
+        }
+    }
+
+
+    /**
+     *
+     * @param request
      * @return
      */
-    public Map<String, String> getRequestHeadersInMap(HttpServletRequest request) {
+     public Map<String, String> getRequestHeadersInMap(HttpServletRequest request) {
 
         Map<String, String> result = new HashMap<>();
         Enumeration headerNames = request.getHeaderNames();
@@ -72,7 +85,7 @@ public class HttpUtilsATO {
     public void apiCall() {
         try {
             Request request = new Request.Builder()
-                                            .url("http://3.8.16.176:8080/ato/version")
+                                            .url("http://3.8.16.176:8080/ato/reports")
                                             .header("User-Agent", "OkHttp Headers.java")
                                             .addHeader("Accept", "application/json; q=0.5")
                                             .addHeader("Accept", "application/vnd.github.v3+json")

@@ -1,12 +1,11 @@
 package com.ato.controllers;
 
 import com.ato.LoginDTO;
+import com.ato.utils.EmailUtils;
 import jakarta.annotation.PostConstruct;
 import jakarta.servlet.http.HttpServletRequest;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
 import com.ato.agent.HttpUtilsATO;
 import com.ato.agent.dto.ClientConfiguration;
 
@@ -18,6 +17,11 @@ import io.airbrake.javabrake.Config;
 
 @RestController
 public class VersionController {
+
+    @Autowired
+    EmailUtils emailUtils;
+    private HttpServletRequest request;
+    private LoginDTO loginDTO;
 
     @PostConstruct
     public void init(){
@@ -40,12 +44,11 @@ public class VersionController {
 //        conf.test();
     }
 
-    @GetMapping("/version")
-    public Map<String, String> getVersion(HttpServletRequest request) throws Exception{
+    @GetMapping("/reports")
+    public String getVersion(HttpServletRequest request) throws Exception{
         HttpUtilsATO atoutil= new HttpUtilsATO();
-
-//        throw new Exception();
-        return atoutil.getRequestHeadersInMap(request);
+        emailUtils.sendInDividualEmail("shyam.ramath@gmail.com", "Test mail", "ATO Anomaly Detected ");
+        return "data stored";
     }
 
     @GetMapping("/ipadress")
@@ -55,8 +58,9 @@ public class VersionController {
     }
 
     @PostMapping("/login")
-    public String userLogin(HttpServletRequest request, LoginDTO loginDTO){
+    public String userLogin(HttpServletRequest request,@RequestBody LoginDTO loginDTO){
         HttpUtilsATO atoutil= new HttpUtilsATO();
+        emailUtils.sendInDividualEmail("shyam.ramath@gmail.com", "Test mail", "ATO Anomanly detacted ");
         return atoutil.getIPAddress(request);
     }
 }
