@@ -50,15 +50,12 @@ public class HttpUtilsATO {
 
         Map<String, String> result = new HashMap<>();
         Enumeration headerNames = request.getHeaderNames();
-
         HttpServletRequest httpRequest = (HttpServletRequest) request;
-
         Map<String, String> headers = Collections.list(httpRequest.getHeaderNames())
                 .stream()
                 .collect(Collectors.toMap(h -> h, httpRequest::getHeader));
 
         int headerSize=headers.size();
-
         while (headerNames.hasMoreElements()) {
             String key = (String) headerNames.nextElement();
             String value = request.getHeader(key);
@@ -66,8 +63,6 @@ public class HttpUtilsATO {
         }
 
         getIPAddress(request);
-        apiCall();
-
         return result;
     }
 
@@ -85,11 +80,11 @@ public class HttpUtilsATO {
     public void apiCall() {
         try {
             Request request = new Request.Builder()
-                                            .url("http://3.8.16.176:8080/ato/reports")
-                                            .header("User-Agent", "OkHttp Headers.java")
-                                            .addHeader("Accept", "application/json; q=0.5")
-                                            .addHeader("Accept", "application/vnd.github.v3+json")
-                                            .build();
+                    .url("http://3.8.16.176:8080/ato-endpoints/reports")
+                    .header("User-Agent", "OkHttp Headers.java")
+                    .addHeader("Accept", "application/json; q=0.5")
+                    .addHeader("Accept", "application/vnd.github.v3+json")
+                    .build();
 
             Call call = okhttp.newCall(request);
             Response response = call.execute();

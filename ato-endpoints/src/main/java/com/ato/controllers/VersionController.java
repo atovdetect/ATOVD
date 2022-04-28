@@ -1,6 +1,7 @@
 package com.ato.controllers;
 
 import com.ato.LoginDTO;
+import com.ato.dto.Anomaly;
 import com.ato.utils.EmailUtils;
 import jakarta.annotation.PostConstruct;
 import jakarta.servlet.http.HttpServletRequest;
@@ -9,6 +10,8 @@ import org.springframework.web.bind.annotation.*;
 import com.ato.agent.HttpUtilsATO;
 import com.ato.agent.dto.ClientConfiguration;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 import io.airbrake.javabrake.Notice;
@@ -20,8 +23,6 @@ public class VersionController {
 
     @Autowired
     EmailUtils emailUtils;
-    private HttpServletRequest request;
-    private LoginDTO loginDTO;
 
     @PostConstruct
     public void init(){
@@ -51,10 +52,16 @@ public class VersionController {
         return "data stored";
     }
 
-    @GetMapping("/ipadress")
-    public String getIpAddres(HttpServletRequest request){
-        HttpUtilsATO atoutil= new HttpUtilsATO();
-        return atoutil.getIPAddress(request);
+    @GetMapping("/fetchreport")
+    public List<Anomaly> getIpAddres(HttpServletRequest request){
+
+        List<Anomaly> anomalyList = new ArrayList<Anomaly>();
+        anomalyList.add(new Anomaly());
+        anomalyList.add(new Anomaly());
+        anomalyList.add(new Anomaly());
+        anomalyList.add(new Anomaly());
+
+        return  anomalyList;
     }
 
     @PostMapping("/login")
