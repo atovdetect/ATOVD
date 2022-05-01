@@ -1,12 +1,15 @@
 package com.ato.agent;
 
 
-import jakarta.servlet.http.HttpServletRequest;
-import okhttp3.Call;
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import okhttp3.Response;
+//import jakarta.servlet.http.HttpServletRequest;
 
+import com.ato.agent.dto.ClientConfiguration;
+import com.ato.agent.dto.ReportDTO;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import okhttp3.*;
+
+import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 import java.util.Collections;
 import java.util.Enumeration;
@@ -35,8 +38,16 @@ public class HttpUtilsATO {
      */
     public void analyzeRequest(HttpServletRequest request){
         Map<String, String> result=getRequestHeadersInMap(request);
+        final Gson gson = new GsonBuilder().create();
+
+        ReportDTO report=new ReportDTO();
+        report.setIpaddress(getIPAddress(request));
+        report.setDescription(" Header detected ");
+        report.setDatectedData(String.valueOf(result.size()));
+        report.setAppId(ClientConfiguration.config.getAppId());
+        String jsonBody=gson.toJson(report);
         if(result.size()>10){
-            apiCall();
+            apiCall(jsonBody);
         }
     }
 
@@ -77,13 +88,18 @@ public class HttpUtilsATO {
     /**
      *
      */
-    public void apiCall() {
+    public void apiCall(String jsonBody) {
+        System.out.println(" Calling the API for reporting ajshgdjasgdjashdgjasgd **8 ---"+jsonBody);
         try {
+
+            RequestBody body = RequestBody.create(MediaType.parse("application/json"), jsonBody);
             Request request = new Request.Builder()
-                    .url("http://3.8.16.176:8080/ato-endpoints/reports")
+                    .url("http://localhost:8080/reports")
                     .header("User-Agent", "OkHttp Headers.java")
                     .addHeader("Accept", "application/json; q=0.5")
                     .addHeader("Accept", "application/vnd.github.v3+json")
+                    .addHeader("appid",ClientConfiguration.config.getAppId())
+                    .post(body)
                     .build();
 
             Call call = okhttp.newCall(request);

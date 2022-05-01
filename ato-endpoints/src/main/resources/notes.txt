@@ -1,0 +1,10 @@
+//            List<Anomaly> anomalyList = new ArrayList() {{
+//                add(Anomaly.builder().description("Some aomaly detacted").ipaddress("123.12.12.12").build());
+//                add(Anomaly.builder().description("Some aomaly detacted").ipaddress("123.12.12.12").build());
+//                add(Anomaly.builder().description("Some aomaly detacted").ipaddress("123.12.12.12").build());
+//            }};
+//            Collections.nCopies(10, anomaly).stream().toList();
+//            return Stream.generate(Anomaly::new).limit(10).collect(Collectors.toList());
+
+//            List<Anomaly> anomalyList = Stream.generate(Anomaly::new).limit(10).collect(Collectors.toList());
+            //return IntStream.range(0, 10).mapToObj(Object::new) .collect(Collectors.toList());

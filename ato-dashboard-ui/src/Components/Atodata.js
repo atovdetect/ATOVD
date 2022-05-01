@@ -4,7 +4,8 @@ import React, { useState, useEffect } from 'react';
  
 function Atodata() {
     const [data, getData] = useState([])
-    const URL = 'http://35.177.221.199:8080/ato-endpoints/fetchreport';
+    // const URL = 'http://35.177.221.199:8080/ato-endpoints/fetchreport';
+    const URL = 'http://3.8.16.176:8080/ato-endpoints/fetchreport';
  
     useEffect(() => {
         fetchData()

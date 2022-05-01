@@ -7,36 +7,14 @@ package com.ato.agent.dto;
  */
 public class ClientConfiguration {
 
-    String clientId;
+    public static Config config;
 
     /**
      *
-     * @param clientId
+     * @param appId
      */
-    public ClientConfiguration(String clientId){
-        this.clientId=clientId;
+    public ClientConfiguration(String appId){
+        this.config = new Config(appId);
     }
-
-
-//    public void test(){
-//
-//        Config config = new Config();
-//        config.projectId = 12345;
-//        config.projectKey = "FIXME";
-//        Notifier notifier = new Notifier(config);
-//
-//        notifier.addFilter(
-//                (
-//                        Notice notice) -> {
-//                    notice.setContext("environment", "production");
-//                    return notice;
-//                });
-//    }
-
-
-
-
-
-
 
 }
