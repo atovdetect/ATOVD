@@ -89,6 +89,7 @@ public class HttpUtilsATO {
         System.out.println(" Calling the API for reporting ajshgdjasgdjashdgjasgd **8 ---"+jsonBody);
         try {
             String apiUrl = "http://3.8.16.176:8080/ato-endpoints/reports";
+            System.out.println(" Connecting to the the endpoint, "+apiUrl);
             RequestBody body = RequestBody.create(MediaType.parse("application/json"), jsonBody);
             Request request = new Request.Builder()
 //                    .url("http://localhost:8080/reports")
