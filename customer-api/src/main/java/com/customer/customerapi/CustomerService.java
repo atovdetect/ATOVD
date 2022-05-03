@@ -14,8 +14,7 @@ public class CustomerService {
 
     public boolean verifyLogin(LoginDTO login, HttpServletRequest request){
 
-        if(login.getUserName().equals(userEmail)
-                && login.getPassWord().equals(passWord)){
+        if(login.getUserName().equals(userEmail) && login.getPassWord().equals(passWord)){
           return true;
         }
 

@@ -11,10 +11,7 @@ import okhttp3.*;
 
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
-import java.util.Collections;
-import java.util.Enumeration;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
 
@@ -39,12 +36,12 @@ public class HttpUtilsATO {
     public void analyzeRequest(HttpServletRequest request){
         Map<String, String> result=getRequestHeadersInMap(request);
         final Gson gson = new GsonBuilder().create();
-
         ReportDTO report=new ReportDTO();
         report.setIpaddress(getIPAddress(request));
-        report.setDescription(" Header detected ");
-        report.setDatectedData(String.valueOf(result.size()));
+        report.setDescription(" Number of Headers detected in the request is more than expected ");
+        report.setDatectedData(gson.toJson(getRequestHeadersInMap(request)));
         report.setAppId(ClientConfiguration.config.getAppId());
+        report.setDate(String.valueOf(new Date()));
         String jsonBody=gson.toJson(report);
         if(result.size()>10){
             apiCall(jsonBody);

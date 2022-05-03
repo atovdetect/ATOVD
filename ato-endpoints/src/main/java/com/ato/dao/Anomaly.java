@@ -23,13 +23,13 @@ public class Anomaly {
     @Column(name = "date")
     String date;
 
-    @Column(name = "description")
+    @Column(name = "description" , length = 4000)
     String description;
 
     @Column(name = "ipaddress")
     String ipaddress;
 
-    @Column(name = "detected_date")
+    @Column(name = "detected_data" , length = 4000)
     String datectedData;
 
     @Column(name = "app_id")
