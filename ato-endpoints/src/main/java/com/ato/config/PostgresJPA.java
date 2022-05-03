@@ -55,7 +55,7 @@ public class PostgresJPA {
 //        dataSource.setUrl("jdbc:mysql://localhost:3306/jmrymfjw_escuela_website");
 //        dataSource.setUrl("jdbc:postgresql://localhost/escuela_database?socketTimeout=1");
 //        dataSource.setUrl("jdbc:postgresql://localhost/escuela_database?socketTimeout=4&options=-c%20statement_timeout=10");
-        dataSource.setUrl("jdbc:postgresql://atodb.cqhfbbik5ac7.eu-west-2.rds.amazonaws.com/atodb?options=-c%20statement_timeout=25");
+        dataSource.setUrl("jdbc:postgresql://atodb.cqhfbbik5ac7.eu-west-2.rds.amazonaws.com/atodb");
 //        atodb.cqhfbbik5ac7.eu-west-2.rds.amazonaws.com
         dataSource.setUsername("postgres");
         dataSource.setPassword("postgres");

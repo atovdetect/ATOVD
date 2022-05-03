@@ -13,14 +13,17 @@ public class AtoUtils {
     @Autowired
     UserRepository userRepository;
 
-    public String getRegisteredEmail(String appID){
-       Optional foundUser= userRepository.findUserByAppId(appID);
-
-       if(foundUser.isPresent()){
-           User user = (User)  foundUser.get();
-           return user.getEmail();
-       }
-      return "";
+    /**
+     * @param appID
+     * @return
+     */
+    public String getRegisteredEmail(String appID) {
+        Optional foundUser = userRepository.findUserByAppId(appID);
+        if (foundUser.isPresent()) {
+            User user = (User) foundUser.get();
+            return user.getEmail();
+        }
+        return "shyamu.in@gmail.com";
     }
 
 }
