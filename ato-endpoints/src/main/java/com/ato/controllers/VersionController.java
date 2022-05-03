@@ -50,10 +50,10 @@
 
         @CrossOrigin(origins = "*", allowedHeaders = "*")
         @PostMapping ("/reports")
-        public String getVersion(@RequestBody Anomaly anomaly,@RequestHeader("appId") String appId) throws Exception{
-
+        public String getVersion(@RequestBody Anomaly anomaly) throws Exception{
+            System.out.println(" -- Report received -- ");
             anomalyRepository.save(anomaly);
-            emailUtils.sendInDividualEmail(atoUtils.getRegisteredEmail(appId), "ATO Alert mail", "ATO Anomaly Detected ");
+            emailUtils.sendInDividualEmail(atoUtils.getRegisteredEmail(anomaly.getAppId()), "ATO Alert mail", "ATO Anomaly Detected ");
             return "data stored";
         }
 
