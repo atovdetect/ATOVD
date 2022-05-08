@@ -26,7 +26,7 @@ export default class Register extends Component {
     handleSubmit = event => {
         event.preventDefault();
         this.setState({isLoading: true});
-        const url = 'https://gowtham-rest-api-crud.herokuapp.com/register';
+        const url = 'http://3.8.16.176:8080/ato-endpoints/registration';
         const email = this.state.email;
         const password = this.state.password;
         const name = this.state.name;
