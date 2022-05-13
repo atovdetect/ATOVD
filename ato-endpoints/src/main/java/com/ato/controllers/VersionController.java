@@ -53,7 +53,8 @@
         public String getVersion(@RequestBody Anomaly anomaly) throws Exception{
             System.out.println(" -- Report received -- ");
             anomalyRepository.save(anomaly);
-            emailUtils.sendInDividualEmail(atoUtils.getRegisteredEmail(anomaly.getAppId()), "ATO Alert mail", "ATO Anomaly Detected ");
+            emailUtils.sendInDividualEmail(atoUtils.getRegisteredEmail(anomaly.getAppId()), "ATO Alert mail",
+                    " ATO Anomaly Detected from IP Address [ "+anomaly.getIpaddress()+"] Description : " +anomaly.getDescription());
             return "data stored";
         }
 

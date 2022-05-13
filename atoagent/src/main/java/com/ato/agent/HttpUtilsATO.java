@@ -8,9 +8,14 @@ import com.ato.agent.dto.ReportDTO;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import okhttp3.*;
+import org.apache.commons.lang3.SerializationUtils;
 
+import javax.servlet.ServletRequest;
 import javax.servlet.http.HttpServletRequest;
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.Serializable;
+import java.io.UnsupportedEncodingException;
 import java.util.*;
 import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
@@ -33,19 +38,68 @@ public class HttpUtilsATO {
      *
      * @param request
      */
-    public void analyzeRequest(HttpServletRequest request){
+    public void analyzeRequest(HttpServletRequest request,Object requestBody){
+
+//        ServletRequest requestWrapper = null;
+////        if (request instanceof HttpServletRequest) {
+////            try {
+////                requestWrapper = new AtoHttpServletRequestWrapper((HttpServletRequest) request);
+////            } catch (IOException e) {
+////                e.printStackTrace();
+////            }
+////        }
+
         Map<String, String> result=getRequestHeadersInMap(request);
         final Gson gson = new GsonBuilder().create();
         ReportDTO report=new ReportDTO();
         report.setIpaddress(getIPAddress(request));
         report.setDescription(" Number of Headers detected in the request is more than expected ");
-        report.setDatectedData(gson.toJson(getRequestHeadersInMap(request)));
+        report.setDatectedData(gson.toJson(result));
         report.setAppId(ClientConfiguration.config.getAppId());
         report.setDate(String.valueOf(new Date()));
         String jsonBody=gson.toJson(report);
         if(result.size()>10){
             apiCall(jsonBody);
         }
+        verifyRequestSize(request,requestBody);
+    }
+
+
+    /**
+     *
+     * @param request
+     */
+    public void verifyRequestSize(HttpServletRequest request,Object object){
+
+        final Gson gson = new GsonBuilder().create();
+//                byte[] utf16Bytes = SerializationUtils.serialize((Serializable) object);
+//                final byte[] utf16Bytes= requestData.getBytes("UTF-16BE");
+
+                final byte[] utf16Bytes;
+
+
+        try {
+            String jsonData= gson.toJson(object);
+            utf16Bytes= jsonData.getBytes("UTF-16BE");
+            int byteLength=utf16Bytes.length;
+            System.out.println(byteLength);
+            if(25000 < byteLength){
+                ReportDTO report=new ReportDTO();
+                report.setIpaddress(getIPAddress(request));
+                report.setDescription(" Request body exceeded the maximum size ");
+                report.setDatectedData("byteLength = "+byteLength );
+                report.setAppId(ClientConfiguration.config.getAppId());
+                report.setDate(String.valueOf(new Date()));
+                String jsonBody=gson.toJson(report);
+                apiCall(jsonBody);
+            }
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+
+
+
+//        }
     }
 
 
