@@ -5,44 +5,41 @@ import apiClient from "../Components/axios";
  
 function Atodata() {
   //  const [data, state] = useState([])
-    state = {
-        persons: []
-      }
     // const URL = 'http://35.177.221.199:8080/ato-endpoints/fetchreport';
    //ß const URL = 'http://3.8.16.176:8080/ato-endpoints/fetchreport';
- 
+
+    const [persons, setPersons] = useState([]);
+
     useEffect(() => {
         fetchData()
     }, [])
  
  
-    const  fetchData = () => {
-let data =apiClient.get('ato-endpoints/fetchreport').then(res => {
-    const persons = res.data;
+    const fetchData = () => {
+      apiClient.get('ato-endpoints/fetchreport').then(res => {
+        const persons = res.data;
+        setPersons(persons);
+      });
 
-    this.setState({ persons });
-  })
-
-// apiClient.get(`https://jsonplaceholder.typicode.com/users`)
-// .then(res => {
-//   const persons = res.data;
-//   this.setState({ persons });
-// })
-    // data.
-    //     getData(data);
-    //     return  data
+      // apiClient.get(`https://jsonplaceholder.typicode.com/users`)
+      // .then(res => {
+      //   const persons = res.data;
+      //   this.setState({ persons });
+      // })
+          // data.
+          //     getData(data);
+          //     return  data
 
 
-        // fetch(URL)
-        //     .then((res) =>
-        //         res.json())
- 
-        //     .then((response) => {
-        //         console.log(response);
-        //         getData(response.response.results);
-        //     })
-        // apiClient.post
- 
+              // fetch(URL)
+              //     .then((res) =>
+              //         res.json())
+      
+              //     .then((response) => {
+              //         console.log(response);
+              //         getData(response.response.results);
+              //     })
+              // apiClient.post
     }
 
 
@@ -65,16 +62,16 @@ let data =apiClient.get('ato-endpoints/fetchreport').then(res => {
     //  }
  
     // render() {
-        return (
-          <ul>
-            {
-              this.state.persons
-                .map(person =>
-                  <li key={person.id}>{person.name}</li>
-                )
-            }
-          </ul>
-        )
+        // return (
+        //   <ul>
+        //     {
+        //       this.state.persons
+        //         .map(person =>
+        //           <li key={person.id}>{person.name}</li>
+        //         )
+        //     }
+        //   </ul>
+        // )
     //   };
 
 
@@ -89,7 +86,7 @@ let data =apiClient.get('ato-endpoints/fetchreport').then(res => {
                     <th>ipaddress</th>
                     <th>requestHeaders</th>
                 </tr>
-                {this.state.persons((item, i) => (
+                {persons.map((item, i) => (
                     <tr key={i}>
                         <td>{item.userId}</td>
                         <td>{item.date}</td>
