@@ -44,4 +44,26 @@ public class EmailUtils {
             return false;
         }
     }
+
+
+    public  boolean sendInDividualEmail2(String to,String subject,String body) {
+        try {
+            String from 	= "letstalk@escuelatech.com";
+            MimeMessage mimeMessage = mailSender.createMimeMessage();
+            MimeMessageHelper msg = new MimeMessageHelper(mimeMessage, true, "UTF-8");
+            msg.setFrom(new InternetAddress(from,"ATO Detectors"));
+            msg.setTo(to);
+            msg.setSubject(subject);
+            msg.setText(body,true);
+//            msg.addInline("aws.jpg", new ClassPathResource("aws.jpg"));
+//            msg.addInline("watsapp.png", new ClassPathResource("watsapp.png"));
+////			msg.addInline("logo.jpg", new ClassPathResource("logo.jpg"));
+//            msg.addInline("logo.jpeg", new ClassPathResource("logo.jpeg"));
+            mailSender.send(mimeMessage);
+            return true;
+        }  catch(Exception exc) {
+            exc.printStackTrace(); //TODO handle Exception
+            return false;
+        }
+    }
 }
