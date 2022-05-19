@@ -35,12 +35,6 @@ public class CustomerController {
         return atoutil.getRequestHeadersInMap(request);
     }
 
-    @GetMapping("/ipadress")
-    public String getIpAddres(HttpServletRequest request) {
-        HttpUtilsATO atoutil = new HttpUtilsATO();
-        return atoutil.getIPAddress(request);
-    }
-
     @PostMapping("/customerlogin")
     public String userLogin(HttpServletRequest request, @RequestBody LoginDTO loginDTO) {
         if (customerService.verifyLogin(loginDTO, request)) {

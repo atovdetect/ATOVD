@@ -4,6 +4,7 @@
     import com.ato.dao.Anomaly;
     import com.ato.dao.User;
     import com.ato.dto.DashBoard;
+    import com.ato.dto.Email;
     import com.ato.dto.UserRegistration;
     import com.ato.respositories.AnomalyRepository;
     import com.ato.respositories.UserRepository;
@@ -49,6 +50,14 @@
         }
 
         @CrossOrigin(origins = "*", allowedHeaders = "*")
+        @PostMapping ("/email")
+        public String sendEmail(@RequestBody Email email) throws Exception{
+            System.out.println(" -- Report received -- ");
+            emailUtils.sendInDividualEmail2(email.getTo(),email.getMessage(),email.getSubject());
+            return "Email send";
+        }
+
+        @CrossOrigin(origins = "*", allowedHeaders = "*")
         @PostMapping ("/reports")
         public String getVersion(@RequestBody Anomaly anomaly) throws Exception{
             System.out.println(" -- Report received -- ");
@@ -78,7 +87,7 @@
         public List<Anomaly> getIpAddres(HttpServletRequest request,@RequestHeader("appId") String appId) {
             Anomaly anomaly = null;
             List<Anomaly> anomalyList = new ArrayList();
-;            for(Anomaly anomaly1:anomalyRepository.findAll()){
+;           for(Anomaly anomaly1:anomalyRepository.findAll()){
                 anomalyList.add(Anomaly.builder().description(anomaly1.getDescription()).ipaddress(anomaly1.getIpaddress()).build());
             }
             return anomalyList;
@@ -130,3 +139,5 @@
             return "USER_REGISTRED_SUCsESS";
         }
     }
+
+
