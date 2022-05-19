@@ -74,25 +74,31 @@ function Atodata() {
         // )
     //   };
 
+    // "anomaliId": 89,
+    //     "date": "Fri May 13 18:32:57 CDT 2022",
+    //     "description": " Request body exceeded the maximum size ",
+    //     "ipaddress": "0:0:0:0:0:0:0:1",
+    //     "datectedData": "byteLength = 51104",
+    //     "appId": null
+
 
     return (
         <>
             <tbody>
                 <tr>
-                    <th>User Id</th>
+                    <th>Anomaly Id</th>
                     <th>Date</th>
-                    <th>Title</th>
                     <th>Description</th>
                     <th>ipaddress</th>
                     <th>requestHeaders</th>
                 </tr>
                 {persons.map((item, i) => (
                     <tr key={i}>
-                        <td>{item.userId}</td>
+                        <td>{item.anomaliId}</td>
                         <td>{item.date}</td>
                         <td>{item.description}</td>
                         <td>{item.ipaddress}</td>
-                        <td>{item.requestHeaders}</td>
+                        <td>{item.datectedData}</td>
                     </tr>
                 ))}
             </tbody>
