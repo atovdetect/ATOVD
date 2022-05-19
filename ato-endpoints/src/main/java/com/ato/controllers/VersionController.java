@@ -88,7 +88,7 @@
             Anomaly anomaly = null;
             List<Anomaly> anomalyList = new ArrayList();
 ;           for(Anomaly anomaly1:anomalyRepository.findAll()){
-                anomalyList.add(Anomaly.builder().description(anomaly1.getDescription()).ipaddress(anomaly1.getIpaddress()).build());
+                anomalyList.add(Anomaly.builder().description(anomaly1.getDescription()).ipaddress(anomaly1.getIpaddress()).date(anomaly1.getDate()).anomaliId(anomaly1.getAnomaliId()).datectedData(anomaly1.getDatectedData()).build());
             }
             return anomalyList;
         }
