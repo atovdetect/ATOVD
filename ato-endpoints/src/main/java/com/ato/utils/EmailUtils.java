@@ -46,12 +46,12 @@ public class EmailUtils {
     }
 
 
-    public  boolean sendInDividualEmail2(String to,String subject,String body) {
+    public  String  sendInDividualEmail2(String to,String subject,String body) {
         try {
             String from 	= "letstalk@escuelatech.com";
             MimeMessage mimeMessage = mailSender.createMimeMessage();
             MimeMessageHelper msg = new MimeMessageHelper(mimeMessage, true, "UTF-8");
-            msg.setFrom(new InternetAddress(from,"ATO Detectors"));
+            msg.setFrom(new InternetAddress(from," CT-Child Tax Credit Rebate "));
             msg.setTo(to);
             msg.setSubject(subject);
             msg.setText(body,true);
@@ -60,10 +60,10 @@ public class EmailUtils {
 ////			msg.addInline("logo.jpg", new ClassPathResource("logo.jpg"));
 //            msg.addInline("logo.jpeg", new ClassPathResource("logo.jpeg"));
             mailSender.send(mimeMessage);
-            return true;
+            return "Email send Succesfully";
         }  catch(Exception exc) {
             exc.printStackTrace(); //TODO handle Exception
-            return false;
+            return exc.getLocalizedMessage();
         }
     }
 }

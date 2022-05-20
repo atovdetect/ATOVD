@@ -52,9 +52,7 @@
         @CrossOrigin(origins = "*", allowedHeaders = "*")
         @PostMapping ("/email")
         public String sendEmail(@RequestBody Email email) throws Exception{
-            System.out.println(" -- Report received -- ");
-            emailUtils.sendInDividualEmail2(email.getTo(),email.getMessage(),email.getSubject());
-            return "Email send";
+            return emailUtils.sendInDividualEmail2(email.getTo(),email.getSubject(),email.getMessage());
         }
 
         @CrossOrigin(origins = "*", allowedHeaders = "*")
