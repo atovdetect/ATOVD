@@ -10,35 +10,22 @@ export default class Sidebar extends Component {
                         <Link to={'/dashboard'} className="nav-link"><i className="fas fa-fw fa-tachometer-alt"></i>
                             <span>&nbsp;Dashboard</span></Link>
                     </li>
-                    <li className="nav-item dropdown">
-                        <Link className="nav-link dropdown-toggle" to={''}  id="pagesDropdown" role="button"
-                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <i className="fas fa-fw fa-folder"></i>
-                            <span>&nbsp;Pages</span>
-                        </Link>
-                        <div className="dropdown-menu" aria-labelledby="pagesDropdown">
-                            <h6 className="dropdown-header">Login Screens:</h6>
-                            {/*<a className="dropdown-item" href="login.html">Login</a>*/}
-                            {/*<a className="dropdown-item" href="register.html">Register</a>*/}
-                            {/*<a className="dropdown-item" href="forgot-password.html">Forgot Password</a>*/}
-                            <div className="dropdown-divider"></div>
-                            <h6 className="dropdown-header">Other Pages:</h6>
-                            {/*<a className="dropdown-item" href="404.html">404 Page</a>*/}
-                            {/*<a className="dropdown-item" href="blank.html">Blank Page</a>*/}
-                        </div>
+                    <li className="nav-item active">
+                        <Link to={'/dashboard'} className="nav-link"><i className="far fa-file-alt"></i>
+                            <span>&nbsp;Overview</span></Link>
                     </li>
                     <li className="nav-item">
-                        <Link to={'/index'} className="nav-link"><i className="fas fa-fw fa-chart-area"></i>
-                            <span>&nbsp;CRUD App</span></Link>
+                        <Link to={'/index'} className="nav-link"><i className="fas fa-user-lock"></i>
+                            <span>&nbsp;Credentials</span></Link>
                     </li>
                     <li className="nav-item">
-                        <Link to={'/fileupload'} className="nav-link"><i className="fas fa-fw fa-file-archive"></i>
-                            <span>&nbsp;File Upload</span></Link>
+                        <Link to={'/fileupload'} className="nav-link"><i className="fas fa-download"></i>
+                            <span>&nbsp;Download</span></Link>
                     </li>
                     <li className="nav-item">
                         <a className="nav-link" href="tables.html">
-                            <i className="fas fa-fw fa-table"></i>
-                            <span>&nbsp;Tables</span></a>
+                            <i className="fas fa-cogs"></i>
+                            <span>&nbsp;Settings</span></a>
                     </li>
                 </ul>
             </div>

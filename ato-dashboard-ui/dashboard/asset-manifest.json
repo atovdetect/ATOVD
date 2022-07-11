@@ -1,0 +1,29 @@
+{
+  "files": {
+    "main.css": "/dashboard/static/css/main.79deaa64.css",
+    "main.js": "/dashboard/static/js/main.87a02804.js",
+    "static/media/fa-solid-900.svg": "/dashboard/static/media/fa-solid-900.a07039a556ddb7dcda99.svg",
+    "static/media/fa-brands-400.svg": "/dashboard/static/media/fa-brands-400.f0f169970eb6e3ca0054.svg",
+    "static/media/login-bg.png": "/dashboard/static/media/login-bg.8d2e1c30fac729069e1a.png",
+    "static/media/fa-solid-900.eot": "/dashboard/static/media/fa-solid-900.660ef93f73492f669a3a.eot",
+    "static/media/fa-solid-900.ttf": "/dashboard/static/media/fa-solid-900.718a680674f5ca672106.ttf",
+    "static/media/fa-regular-400.svg": "/dashboard/static/media/fa-regular-400.ce53660559b164a6ca8c.svg",
+    "static/media/fa-brands-400.eot": "/dashboard/static/media/fa-brands-400.189a0edff801d2044be2.eot",
+    "static/media/fa-brands-400.ttf": "/dashboard/static/media/fa-brands-400.f91f38bd74ca6faa255e.ttf",
+    "static/media/fa-solid-900.woff": "/dashboard/static/media/fa-solid-900.bad05f4de8f8346b790b.woff",
+    "static/media/fa-brands-400.woff": "/dashboard/static/media/fa-brands-400.74722b5e4403093e9d8e.woff",
+    "static/media/fa-brands-400.woff2": "/dashboard/static/media/fa-brands-400.68e431f84f6b98081d9d.woff2",
+    "static/media/fa-solid-900.woff2": "/dashboard/static/media/fa-solid-900.f840beca95c7727dd360.woff2",
+    "static/media/fa-regular-400.eot": "/dashboard/static/media/fa-regular-400.4dff12925df6cd4cdac2.eot",
+    "static/media/fa-regular-400.ttf": "/dashboard/static/media/fa-regular-400.7a39d2695bfaef2880f1.ttf",
+    "static/media/fa-regular-400.woff": "/dashboard/static/media/fa-regular-400.7b735d1083d2cc1383b1.woff",
+    "static/media/fa-regular-400.woff2": "/dashboard/static/media/fa-regular-400.19a6bd8f5a17397a392d.woff2",
+    "index.html": "/dashboard/index.html",
+    "main.79deaa64.css.map": "/dashboard/static/css/main.79deaa64.css.map",
+    "main.87a02804.js.map": "/dashboard/static/js/main.87a02804.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.79deaa64.css",
+    "static/js/main.87a02804.js"
+  ]
+}

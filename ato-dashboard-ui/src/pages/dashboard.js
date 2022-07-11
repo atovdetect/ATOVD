@@ -19,7 +19,6 @@ export default class Dashboard extends Component {
                                 <li className="breadcrumb-item">
                                     <Link to={'/dashboard'} >Dashboard</Link>
                                 </li>
-                                <li className="breadcrumb-item active">Overview</li>
                             </ol>
 
                             <div className="row">
@@ -29,7 +28,7 @@ export default class Dashboard extends Component {
                                             <div className="card-body-icon">
                                                 <i className="fas fa-fw fa-comments"></i>
                                             </div>
-                                            <div className="mr-5">26 New Messages!</div>
+                                            <div className="mr-5">New Alerts!</div>
                                         </div>
                                         <Link className="card-footer text-white clearfix small z-1" to={'#'}>
                                             <span className="float-left">View Details</span>
@@ -43,7 +42,7 @@ export default class Dashboard extends Component {
                                             <div className="card-body-icon">
                                                 <i className="fas fa-fw fa-list"></i>
                                             </div>
-                                            <div className="mr-5">11 New Tasks!</div>
+                                            <div className="mr-5">Previous Alerts!</div>
                                         </div>
                                         <Link className="card-footer text-white clearfix small z-1" to="#">
                                             <span className="float-left">View Details</span>
@@ -57,7 +56,7 @@ export default class Dashboard extends Component {
                                             <div className="card-body-icon">
                                                 <i className="fas fa-fw fa-shopping-cart"></i>
                                             </div>
-                                            <div className="mr-5">123 New Orders!</div>
+                                            <div className="mr-5">Recurring Alerts!</div>
                                         </div>
                                         <Link className="card-footer text-white clearfix small z-1" to="#">
                                             <span className="float-left">View Details</span>
@@ -71,7 +70,7 @@ export default class Dashboard extends Component {
                                             <div className="card-body-icon">
                                                 <i className="fas fa-fw fa-life-ring"></i>
                                             </div>
-                                            <div className="mr-5">13 New Tickets!</div>
+                                            <div className="mr-5">High Alerts!</div>
                                         </div>
                                         <Link className="card-footer text-white clearfix small z-1" to="#">
                                             <span className="float-left">View Details</span>
@@ -83,19 +82,8 @@ export default class Dashboard extends Component {
 
                             <div className="card mb-3">
                                 <div className="card-header">
-                                    <i className="fas fa-chart-area"></i>
-                                    Area Chart Example
-                                </div>
-                                <div className="card-body">
-                                    <canvas id="myAreaChart" width="100%" height="30"></canvas>
-                                </div>
-                                <div className="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
-                            </div>
-
-                            <div className="card mb-3">
-                                <div className="card-header">
                                     <i className="fas fa-table"></i>
-                                    Data Table Example
+                                    Data Table
                                 </div>
                                 <div className="card-body">
                                     <div className="table-responsive">

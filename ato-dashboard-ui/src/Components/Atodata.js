@@ -89,8 +89,8 @@ function Atodata() {
                     <th>Anomaly Id</th>
                     <th>Date</th>
                     <th>Description</th>
-                    <th>ipaddress</th>
-                    <th>requestHeaders</th>
+                    <th>IP Address</th>
+                    <th>Request Headers</th>
                 </tr>
                 {persons.map((item, i) => (
                     <tr key={i}>
